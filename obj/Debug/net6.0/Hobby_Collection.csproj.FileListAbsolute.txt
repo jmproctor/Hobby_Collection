@@ -1,0 +1,15 @@
+C:\Users\John\Documents\SDC320 Advanced OOP Using C\Week 3\3.8Project\Hobby_Collection\bin\Debug\net6.0\Hobby_Collection.exe
+C:\Users\John\Documents\SDC320 Advanced OOP Using C\Week 3\3.8Project\Hobby_Collection\bin\Debug\net6.0\Hobby_Collection.deps.json
+C:\Users\John\Documents\SDC320 Advanced OOP Using C\Week 3\3.8Project\Hobby_Collection\bin\Debug\net6.0\Hobby_Collection.runtimeconfig.json
+C:\Users\John\Documents\SDC320 Advanced OOP Using C\Week 3\3.8Project\Hobby_Collection\bin\Debug\net6.0\Hobby_Collection.dll
+C:\Users\John\Documents\SDC320 Advanced OOP Using C\Week 3\3.8Project\Hobby_Collection\bin\Debug\net6.0\Hobby_Collection.pdb
+C:\Users\John\Documents\SDC320 Advanced OOP Using C\Week 3\3.8Project\Hobby_Collection\obj\Debug\net6.0\Hobby_Collection.csproj.AssemblyReference.cache
+C:\Users\John\Documents\SDC320 Advanced OOP Using C\Week 3\3.8Project\Hobby_Collection\obj\Debug\net6.0\Hobby_Collection.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\John\Documents\SDC320 Advanced OOP Using C\Week 3\3.8Project\Hobby_Collection\obj\Debug\net6.0\Hobby_Collection.AssemblyInfoInputs.cache
+C:\Users\John\Documents\SDC320 Advanced OOP Using C\Week 3\3.8Project\Hobby_Collection\obj\Debug\net6.0\Hobby_Collection.AssemblyInfo.cs
+C:\Users\John\Documents\SDC320 Advanced OOP Using C\Week 3\3.8Project\Hobby_Collection\obj\Debug\net6.0\Hobby_Collection.csproj.CoreCompileInputs.cache
+C:\Users\John\Documents\SDC320 Advanced OOP Using C\Week 3\3.8Project\Hobby_Collection\obj\Debug\net6.0\Hobby_Collection.dll
+C:\Users\John\Documents\SDC320 Advanced OOP Using C\Week 3\3.8Project\Hobby_Collection\obj\Debug\net6.0\refint\Hobby_Collection.dll
+C:\Users\John\Documents\SDC320 Advanced OOP Using C\Week 3\3.8Project\Hobby_Collection\obj\Debug\net6.0\Hobby_Collection.pdb
+C:\Users\John\Documents\SDC320 Advanced OOP Using C\Week 3\3.8Project\Hobby_Collection\obj\Debug\net6.0\Hobby_Collection.genruntimeconfig.cache
+C:\Users\John\Documents\SDC320 Advanced OOP Using C\Week 3\3.8Project\Hobby_Collection\obj\Debug\net6.0\ref\Hobby_Collection.dll
