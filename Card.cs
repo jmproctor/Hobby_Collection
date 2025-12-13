@@ -4,25 +4,15 @@
 * properties and overrides base functionality to display
 * relevant card details.
 */
-public class Card : Item
-{
+public class Card : Item {
     public string CardSet { get; set; }
 
-    public Card(
-        string name,
-        string category,
-        string subCategory,
-        int quantity,
-        string condition,
-        string notes,
-        string cardSet)
-        : base(name, category, subCategory, quantity, condition, notes)
-    {
+    public Card( string name, string category, string subCategory, int quantity, string condition, string notes, string cardSet)
+        : base(name, category, subCategory, quantity, condition, notes) {
         CardSet = cardSet;
     }
 
-    public override void DisplayDetails()
-    {
+    public override void DisplayDetails() {
         Console.WriteLine("=== Card Item ===");
         Console.WriteLine($"Name: {Name}");
         Console.WriteLine($"Category: {Category}");

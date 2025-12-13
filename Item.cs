@@ -4,8 +4,7 @@
 * for all inventory items while requiring derived classes to
 * override the DisplayDetails() method.
 */
-public abstract class Item : IInventory
-{
+public abstract class Item : IInventory {
     public string Name { get; set; }
     public string Category { get; set; }
     public string SubCategory { get; set; }
@@ -13,8 +12,7 @@ public abstract class Item : IInventory
     public string Condition { get; set; }
     public string Notes { get; set; }
 
-    protected Item(string name, string category, string subCategory, int quantity, string condition, string notes)
-    {
+    protected Item(string name, string category, string subCategory, int quantity, string condition, string notes) {
         Name = name;
         Category = category;
         SubCategory = subCategory;
@@ -25,8 +23,7 @@ public abstract class Item : IInventory
 
     public abstract void DisplayDetails();
 
-    public override string ToString()
-    {
+    public override string ToString() {
         return $"{Name} (Qty: {Quantity}, Condition: {Condition})";
     }
 }

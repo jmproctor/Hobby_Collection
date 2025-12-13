@@ -4,25 +4,15 @@
 * to miniatures and overrides display behavior to include
 * miniature-related details.
 */
-public class Miniature : Item
-{
+public class Miniature : Item {
     public bool Painted { get; set; }
 
-    public Miniature(
-        string name,
-        string category,
-        string subCategory,
-        int quantity,
-        string condition,
-        string notes,
-        bool painted)
-        : base(name, category, subCategory, quantity, condition, notes)
-    {
+    public Miniature(string name, string category, string subCategory, int quantity, string condition, string notes, bool painted)
+        : base(name, category, subCategory, quantity, condition, notes) {
         Painted = painted;
     }
 
-    public override void DisplayDetails()
-    {
+    public override void DisplayDetails() {
         Console.WriteLine("=== Miniature Item ===");
         Console.WriteLine($"Name: {Name}");
         Console.WriteLine($"Category: {Category}");

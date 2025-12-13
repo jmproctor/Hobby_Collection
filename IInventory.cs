@@ -4,8 +4,7 @@
 * structure by requiring identifying fields and a method for
 * displaying item details.
 */
-public interface IInventory
-{
+public interface IInventory {
     string Name { get; set; }
     string Category { get; set; }
     string SubCategory { get; set; }

@@ -1,9 +1,7 @@
 ﻿using System;
 
-class Program
-{
-    static void Main(string[] args)
-    {
+class Program {
+    static void Main(string[] args) {
         // Create collections
         Collection cardCollection = new Collection("Cards", "Magic the Gathering");
         Collection miniatureCollection = new Collection("Miniatures", "Warhammer");
