@@ -17,6 +17,16 @@ public class InventoryDb {
         cmd.ExecuteNonQuery();
     }
 
+    public static string GetCategoryByItemName(SQLiteConnection conn, string name) {
+        string sql = "SELECT Category FROM Inventory WHERE Name = @name LIMIT 1";
+        SQLiteCommand cmd = conn.CreateCommand();
+        cmd.CommandText = sql;
+        cmd.Parameters.AddWithValue("@name", name);
+
+        object result = cmd.ExecuteScalar();
+        return result == null ? null : result.ToString();
+    }
+
     public static void AddItem(SQLiteConnection conn, Item item, string itemType, string extra) {
         string sql =
             "INSERT INTO Inventory (Name, Category, SubCategory, Quantity, Condition, Notes, ItemType, Extra) " +
@@ -36,6 +46,49 @@ public class InventoryDb {
 
         cmd.ExecuteNonQuery();
     }
+
+    public static void DeleteItem(SQLiteConnection conn, string name) {
+        string sql = "DELETE FROM Inventory WHERE Name = @name";
+
+        SQLiteCommand cmd = conn.CreateCommand();
+        cmd.CommandText = sql;
+        cmd.Parameters.AddWithValue("@name", name);
+        cmd.ExecuteNonQuery();
+    }
+
+
+
+    public static List<Item> GetItemsByCategory(SQLiteConnection conn, string category) {
+        List<Item> items = new List<Item>();
+
+        string sql = "SELECT * FROM Inventory WHERE Category = @category";
+        SQLiteCommand cmd = conn.CreateCommand();
+        cmd.CommandText = sql;
+        cmd.Parameters.AddWithValue("@category", category);
+
+        SQLiteDataReader rdr = cmd.ExecuteReader();
+        while (rdr.Read()) {
+            string name = rdr.GetString(1);
+            string cat = rdr.GetString(2);
+            string subCategory = rdr.GetString(3);
+            int quantity = rdr.GetInt32(4);
+            string condition = rdr.GetString(5);
+            string notes = rdr.GetString(6);
+            string itemType = rdr.GetString(7);
+            string extra = rdr.GetString(8);
+
+            if (itemType == "Card") {
+            items.Add(new Card(name, cat, subCategory, quantity, condition, notes, extra));
+            } else if (itemType == "Game") {
+            items.Add(new Game(name, cat, subCategory, quantity, condition, notes, extra));
+            } else if (itemType == "Miniature") {
+            items.Add(new Miniature(name, cat, subCategory, quantity, condition, notes, bool.Parse(extra)));
+            }
+        }
+        return items;
+    }
+
+
 
     public static List<Item> GetAllItems(SQLiteConnection conn) {
         List<Item> items = new List<Item>();

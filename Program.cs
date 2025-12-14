@@ -37,37 +37,73 @@ class Program {
             item.DisplayDetails();
         }
         
-        bool keepAdding = true;
+        bool running = true;
 
-        while (keepAdding) {
-            Console.Write("\nWould you like to add a new item? (y/n): ");
-            string response = Console.ReadLine();
+        while (running) {
+            Console.Write("\nChoose an action: (a)dd, (d)elete, (q)uit: ");
+            string choice = Console.ReadLine();
 
-            if (response.Equals("y", StringComparison.OrdinalIgnoreCase)) {
-                Item newItem = CreateItemFromUser();
+            if (choice.Equals("a", StringComparison.OrdinalIgnoreCase)) {
+                bool keepAdding = true;
 
-                if (newItem != null) {
-                    string itemType = newItem.GetType().Name;
-                    string extra = "";
+                while (keepAdding) {
+                    Console.Write("\nWould you like to add a new item? (y/n): ");
+                    string response = Console.ReadLine();
 
-                    if (newItem is Card card) {
-                        extra = card.CardSet;
-                    } else if (newItem is Game game) {
-                        extra = game.Platform;
-                    } else if (newItem is Miniature mini) {
-                        extra = mini.Painted.ToString();
+                    if (response.Equals("y", StringComparison.OrdinalIgnoreCase)) {
+                        Item newItem = CreateItemFromUser();
+
+                        if (newItem != null) {
+                            string itemType = newItem.GetType().Name;
+                            string extra = "";
+
+                            if (newItem is Card card) {
+                                extra = card.CardSet;
+                            } else if (newItem is Game game) {
+                                extra = game.Platform;
+                            } else if (newItem is Miniature mini) {
+                                extra = mini.Painted.ToString();
+                            }
+                            InventoryDb.AddItem(conn, newItem, itemType, extra);
+                            Console.WriteLine("Item added successfully.");
+                        }
+                    } else {
+                        keepAdding = false;
                     }
-
-                    InventoryDb.AddItem(conn, newItem, itemType, extra);
-
-                    Console.WriteLine("Item added successfully.");
                 }
-            } else {
-                keepAdding = false;
-            } 
-        }
-        Console.WriteLine("\nPress any key to exit...");
-        Console.ReadKey();    
+            } else if (choice.Equals("d", StringComparison.OrdinalIgnoreCase)) {
+                bool keepDeleting = true;
+
+                while (keepDeleting) {
+                    Console.Write("\nWould you like to delete an item? (y/n): ");
+                    string response = Console.ReadLine();
+
+                    if (response.Equals("y", StringComparison.OrdinalIgnoreCase)) {
+                        Console.Write("Enter the name of the item to delete: ");
+                        string name = Console.ReadLine();
+
+                        string category = InventoryDb.GetCategoryByItemName(conn, name);
+
+                        InventoryDb.DeleteItem(conn, name);
+                        Console.WriteLine("Item deleted (if it existed).");
+
+                        if (!string.IsNullOrEmpty(category)) {
+                            Console.WriteLine($"\nUpdated items in category: {category}\n");
+
+                            List<Item> updatedItems = InventoryDb.GetItemsByCategory(conn, category);
+                            foreach (Item item in updatedItems) {
+                                item.DisplayDetails();
+                            }
+                        }
+                    } else {
+                        keepDeleting = false;
+                    }
+                }
+            } else if (choice.Equals("q", StringComparison.OrdinalIgnoreCase)) {
+                running = false;
+                Console.ReadKey();
+            }
+        } 
     }
 
     static Item CreateItemFromUser() {
