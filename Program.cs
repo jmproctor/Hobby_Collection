@@ -10,7 +10,8 @@ class Program {
         Collection cardCollection = new Collection("Cards", "Magic the Gathering");
         Collection miniatureCollection = new Collection("Miniatures", "Warhammer");
         Collection gameCollection = new Collection("Video Games", "RPG");
-
+        
+        //Static addition of collectables - to be removed
         Card card1 = new Card("Black Lotus", "Cards", "Magic the Gathering", 1, "Near Mint", "Very valuable card", "Alpha");
         Miniature mini1 = new Miniature("Space Marine Captain", "Miniatures", "Warhammer", 1, "Good", "Needs touch-up paint", true);
         Game game1 = new Game("Baldur's Gate 3", "Video Games", "RPG", 1, "Digital", "Completed once", "PC");
